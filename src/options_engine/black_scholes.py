@@ -1,5 +1,6 @@
-import pytest
-
+import numpy as np
+from numpy import exp, sqrt, log
+from scipy.stats import norm
 
 def bs_price(S, K, T, r, sigma, q=0.0, kind='call'):
     """
@@ -24,10 +25,6 @@ def bs_price(S, K, T, r, sigma, q=0.0, kind='call'):
     float
         The price of the option
     """
-
-    import numpy as np
-    from numpy import exp, sqrt, log
-    from scipy.stats import norm
 
     d1 = (np.log(S/K) + (r-q+(sigma**2/2))*T) / (sigma*np.sqrt(T))
     d2 = d1 - sigma*np.sqrt(T)
